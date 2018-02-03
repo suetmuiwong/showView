@@ -35,25 +35,27 @@ class MyNavBar extends React.Component {
             offsetX = -26;
         }
 
-        return (<div style={{ color: '#f5f5f7' }} >
-            <NavBar
-                //左导航栏
-                icon={<Icon type="left" size={'lg'} onClick={() => {
-                    if (callback) {
-                        callback()
-                        return;
-                    }
+        return (
+            <div style={{ color: '#f5f5f7',height:'0.85rem', }} >
+                <NavBar
+                    //左导航栏
+                    icon={<Icon type="left" size={'lg'} onClick={() => {
+                        if (callback) {
+                            callback()
+                            return;
+                        }
 
-                    if (this.props.page == 'goodsListPage') {
-                        location.href = "iOSNavGoBack://popViewController"; //ios
-                    }
-                }} />}
+                        if (this.props.page == 'goodsListPage') {
+                            location.href = "iOSNavGoBack://popViewController"; //ios
+                        }
+                    }} />}
 
-                mode="light"
-            >
-                <span>{titleName}</span>
-            </NavBar>
-        </div >);
+                    mode="light"
+                >
+                    <span>{titleName}</span>
+                </NavBar>
+            </div >
+        );
 
     }
 }

@@ -74,36 +74,16 @@ const transformCurrency = function (currency) {
 
 const transformCeil = function (ceil) {
 
-    if (currentLang == "zh-Hans-CN" || currentLang == "zh-Hans-US") {
-
-        switch (ceil) {
-            case 0:
-                return '天';
-            case 1:
-                return '月';
-            default:
-                return ceil;
-        }
-
-    } else if (currentLang == "en") {
-
-        switch (ceil) {
-            case 0:
-                return 'Day';
-            case 1:
-                return 'Month';
-            default:
-                return ceil;
-        }
-
+    switch (ceil) {
+        case 0:
+            return '天';
+        case 1:
+            return '月';
+        default:
+            return ceil;
     }
 
-
-
 }
-
-
-
 
 
 
@@ -114,29 +94,13 @@ const transformCeil = function (ceil) {
 const transformStatus = function (order_status) {
     // ordre_status	int	订单状态，0表示未支付，1表示已支付
 
-    if (currentLang == "zh-Hans-CN" || currentLang == "zh-Hans-US") {
-
-
-        switch (order_status) {
-            case 0:
-                return '未支付';
-            case 1:
-                return '已支付';
-            default:
-                return order_status;
-        }
-
-    } else if (currentLang == "en") {
-
-        switch (order_status) {
-            case 0:
-                return 'unPaid';
-            case 1:
-                return 'Paid';
-            default:
-                return order_status;
-        }
-
+    switch (order_status) {
+        case 0:
+            return '未支付';
+        case 1:
+            return '已支付';
+        default:
+            return order_status;
     }
 
 }
@@ -147,35 +111,16 @@ const transformStatus = function (order_status) {
 
 const transformAppeals = function (cmp_manageStatus) {
     //申诉处理状态 0:未处理 1 正在处理 2 处理完成
-
-    if (currentLang == "zh-Hans-CN" || currentLang == "zh-Hans-US") {
-
-        switch (cmp_manageStatus) {
-            case 0:
-                return '未处理';
-            case 1:
-                return '正在处理';
-            case 2:
-                return '处理完成';
-            default:
-                return cmp_manageStatus;
-        }
-
-    } else if (currentLang == "en") {
-
-        switch (cmp_manageStatus) {
-            case 0:
-                return 'untreated';
-            case 1:
-                return 'processing';
-            case 2:
-                return 'figureOut';
-            default:
-                return cmp_manageStatus;
-        }
-
+    switch (cmp_manageStatus) {
+        case 0:
+            return '未处理';
+        case 1:
+            return '正在处理';
+        case 2:
+            return '处理完成';
+        default:
+            return cmp_manageStatus;
     }
-
 
 }
 
@@ -185,37 +130,17 @@ const transformAppeals = function (cmp_manageStatus) {
  */
 const transformAppealsType = function (cmp_type) {
     //申诉处理状态 0:未处理 1 正在处理中 2 处理完成
-
-    if (currentLang == "zh-Hans-CN" || currentLang == "zh-Hans-US") {
-
-        switch (cmp_type) {
-            case 0:
-                return '购买问题';
-            case 1:
-                return '云存服务问题';
-            case 2:
-                return '分享问题';
-            default:
-                return cmp_type;
-        }
-
-    } else if (currentLang == "en") {
-
-        switch (cmp_type) {
-            case 0:
-                return 'Buy problem';
-            case 1:
-                return 'Cloud services';
-            case 2:
-                return 'Share issue';
-            default:
-                return cmp_type;
-        }
-
+    switch (cmp_type) {
+        case 0:
+            return '购买问题';
+        case 1:
+            return '云存服务问题';
+        case 2:
+            return '分享问题';
+        default:
+            return cmp_type;
     }
-
-
 
 }
 
-export { localItem,removeLocalItem, transformCurrency, FormatUtils, transformCeil, transformStatus, transformAppeals, transformAppealsType };
+export { localItem, removeLocalItem, transformCurrency, FormatUtils, transformCeil, transformStatus, transformAppeals, transformAppealsType };

@@ -184,15 +184,15 @@ class GoodsList extends React.Component {
           <div style={{ display: '-webkit-box', display: 'flex', flexFlow: 'row', width: '100%', height: '2.30rem', padding: '0.2rem 0', backgroundColor: '#ffffff' }}>
             <div style={{ width: '1.28rem', margin: '0.51rem 0.30rem', backgroundColor: '#fff' }}>
               <div style={{ width: '1.28rem', height: '1.28rem' }}>
-                <img style={{ width: '100%', height: '100%', borderRadius: '0.20rem' }} src={rowData.goods_imgurl} alt="icon" />
+                <img style={{ width: '100%', height: '100%', borderRadius: '0.20rem' }} src={rowData.goodsImage} alt="icon" />
               </div>
             </div>
             <div style={{ flex: '1', padding: '0.10rem 0.30rem 0 0', overflow: 'hidden' }}>
-              <div className="goods-row-text">{rowData.goods_name}</div>
-              <div className="des-text">{rowData.goods_describe}</div>
+              <div className="goods-row-text">{rowData.goodsName}</div>
+              <div className="des-text">{rowData.goodsBrief}</div>
               <div style={{ display: '-webkit-box', display: 'flex', paddingTop: '0.30rem' }}>
-                <div style={{ flex: '1', color: 'red', fontSize: '0.3rem' }}>{transformCurrency(rowData.currency_type) + rowData.price}</div>
-                <Button className="buyBtn" type="ghost" size="small" inline onClick={() => { history.push('goodsDetail/:' + rowData.goods_id) }} >
+                <div style={{ flex: '1', color: 'red', fontSize: '0.3rem' }}>{'￥'+ rowData.originalPrice}</div>
+                <Button className="buyBtn" type="ghost" size="small" inline onClick={() => { history.push('goodsDetail/:' + rowData.goodsId) }} >
                   <FormattedMessage
                     id="goodsListBuyBtn"
                     defaultMessage="goodsListBuyBtn"

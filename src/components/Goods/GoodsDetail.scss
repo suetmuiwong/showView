@@ -1,10 +1,8 @@
 
 .am-card-header-content img {
-  // margin-right: 0.5rem !important;
   height: 1.28rem !important;
   max-width: 100% !important;
-  }
-
+}
 
 .am-card-header-extra {
   -webkit-box-flex: initial !important;
@@ -14,67 +12,6 @@
   font-size: 0.34rem !important;
   color: #888 !important;
 }
-.detail-time{
-  padding-top: 0.25rem;
-}
-.detail-time span{
-  font-size: 0.23rem;
-}
-.goods-des{
-  padding-top: 0.45rem;
-  padding-bottom: 0.45rem;
-}
-.good_prdernum{
-  display: block;
-  padding-top: 0.45rem;
-  padding-bottom: 0.45rem;
-}
-.goods-input{
-  width: 0.78rem;
-  text-align: center;
- // display: inline-block;
-  border : 0.01rem solid #888888;
-  background-color: #fff;
-  height: 0.59rem;
-  // padding-top: 0.28rem;
-  // font-size: 0.26rem;
-  color: #333333;
-  box-sizing:border-box;
-  -moz-box-sizing:border-box; /* Firefox */
-  -webkit-box-sizing:border-box; /* Safari */
-
-}
-.goods-buyBtn{
-  position: fixed;
-  width: 92%;
-  bottom: 0;
-}
-.detail-header{
-  padding-right: 0.15rem;
-}
-.detail-show{
-  padding-bottom: 0.45rem;
-}
-.goods-btn{
-  height: 0.60rem;
-  width: 0.59rem;
-  box-sizing:border-box;
-  -moz-box-sizing:border-box; /* Firefox */
-  -webkit-box-sizing:border-box; /* Safari */
-  border: 0.01rem solid #888888;
-  background-color: #fff;
-  color: #000;
-  border-radius:0.10rem
-  
-}
-.peoductImg{
-  width:100%; 
-  height: 4.00rem;
-  position:relative; 
-  margin-bottom: 0.20rem;
-
-}
-
 
 .am-stepper-handler, .am-stepper-handler-up-inner, .am-stepper-handler-down-inner{
   width: 0.60rem !important;
@@ -100,20 +37,6 @@
   font-size: 0.30rem !important;
 }
 
-// .am-stepper-handler-wrap{
-//   font-size: 0.40rem !important;
-// }
-
-// .am-stepper-input-wrap{
-//   width: 100% !important;
-//   height: 0.6rem !important;
-//   line-height: 0.6rem !important;
-//   text-align: center !important;
-//   overflow: hidden !important;
-//   border: 0.01rem solid #888 !important;
-//   border-radius: 0.10rem !important;
-// }
-
 .am-navbar-title >span{
   overflow: hidden;
   white-space: nowrap;
@@ -123,8 +46,143 @@
 
 }
 
+
+
+// 主体样式
+.gd-img{
+  width: 100%;
+  height: 4.00rem;
+  border: 0.01rem solid #ddd; 
+}
+.gd-img img{
+  max-Width: 100%;
+  height: 4.00rem;
+  display: block;
+  margin: auto;
+}
+.gd-top{
+  display: -webkit-box;
+  display: flex;
+  height: 0.90rem;
+  background-Color:#fff;
+  margin-Bottom: 0.20rem;
+  padding: 0.30rem 0.30rem;
+  border: 0.01rem solid #ddd
+}
+.gd-top-name{
+  color: #333333;
+  font-Weight: bold;
+  font-Size: 0.30rem;
+}
+.gd-top-time{
+  font-Size: 0.22rem;
+  color: #333333;
+   margin-Top: 0.20rem;
+}
+.gd-top-price{
+  color: #f52d2d;
+  font-Size: 0.50rem;
+  line-Height: 0.90rem;
+  height: 0.90rem;
+}
+.gd-middle-info{
+  display: -webkit-box;
+  display: flex;
+  height: 1.00rem;
+  background-Color: #fff;
+  margin-Bottom: 0.20rem;
+  padding: 0.30rem 0.30rem;
+  border: 0.01rem solid #ddd;
+}
+.gd-middle-msg{
+  height: 0.80rem;
+  background-Color: #fff;
+  padding: 0 0.30rem 0.30rem 0.30rem;
+  border: 0.01rem solid #ddd
+}
+.gd-middle-msg p{
+  height: 0.80rem;
+  line-Height: 0.80rem;
+  border-Bottom: 0.01rem solid #ddd;
+  color: #333333;
+  font-Size: 0.28rem;
+}
+.gd-middle-detail{
+  height: 2.40rem;
+  background-Color: #fff;
+  margin-Bottom: 0.20rem;
+  border:0.01rem solid #ddd;
+}
+.gd-middle-typename{
+  display: -webkit-box;
+  display: flex;
+  height: 0.80rem;
+  background-Color: #f5f5f5;
+  padding: 0 0.30rem;
+  line-Height: 0.80rem;
+  font-Size: 0.26rem;
+}
+.gd-middle-servicetime{
+  display: -webkit-box;
+  display: flex;
+  height: 0.80rem;
+  background-Color: #fff;
+  padding: 0 0.30rem;
+  line-Height: 0.80rem;
+  font-Size: 0.26rem;
+  border: 0.01rem solid #ddd;
+}
+.gd-info{
+  flex: 1;
+  text-Align: right;
+  overflow: hidden;
+  whiteSpace: nowrap;
+  textOverflow: ellipsis;
+}
+.gd-bottom-des{
+  background-Color: #fff;
+  padding: 0 0.30rem 0.30rem 0.30rem;
+  border: 0.01rem solid #ddd;
+}
+.gd-bottom-title{
+  border-Bottom: 0.01rem solid #ddd;
+  color: #333333;
+  font-Size: 0.28rem;
+  height: 0.80rem;
+  line-Height: 0.80rem;
+}
 .goodsDetaildescride{
   display: -webkit-box;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  color: #888888;
+  font-Size: 0.26rem;
+  padding-Top: 0.20rem;
+  padding-Bottom: 0.20rem;
+  line-Height: 0.36rem;
+}
+.gd-bottom-price{
+  display: -webkit-box;
+  display: flex;
+  height: 1.00rem;
+  background-Color: #fff;
+  line-Height: 1.00rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border: 0.01rem solid #ddd;
+}
+.gd-bottom-op{
+  color: #aaa;
+  font-Size: 0.26rem;
+  text-Decoration: line-through;
+  padding-Left: 0.30rem;
+}
+.gd-bottom-bybtn{
+  width: 2.70rem;
+  height: 1.00rem;
+  line-Height: 1.00rem;
+  color: #fff;
+  font-Size: 0.26rem;
+  text-Align: center;
 }

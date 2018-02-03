@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { TabBar, Icon } from 'antd-mobile';
 import { connect } from 'react-redux';
+import './TabBar.scss';
 
 
 class MyTabBar extends React.Component {
@@ -30,30 +31,31 @@ class MyTabBar extends React.Component {
                 unselectedTintColor="#949494"
                 tintColor="#33A3F4"
                 barTintColor="white"
+                height="0.85rem"
             >
                 <TabBar.Item
                     title="商品"
                     key="商品"
                     icon={
                         <div style={{
-                            width: '22px',
-                            height: '22px',
-                            background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat'
+                            width: '0.45rem',
+                            height: '0.45rem',
+                            background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  100% 100% no-repeat'
                         }}
                         />
                     }
                     selectedIcon={
                         <div style={{
-                            width: '22px',
-                            height: '22px',
-                            background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat'
+                            width: '0.45rem',
+                            height: '0.45rem',
+                            background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  100% 100% no-repeat'
                         }}
                         />
                     }
-                    selected={page === 'indexTab'}
+                    selected={page === 'goodsListPage'}
                     onPress={() => {
 
-                        changeTab('indexTab');
+                        changeTab('goodsListPage');
                         history.push('/');
                     }}
                     data-seed="logId"
@@ -65,27 +67,29 @@ class MyTabBar extends React.Component {
                     selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
                     title="订单"
                     key="订单"
-                    selected={page === 'favTab'}
+                    selected={page === 'ordersListPage'}
                     onPress={() => {
-                        changeTab('favTab');
-                        history.push('/Fav');
+                        console.log(this.props)
+                        console.log(history)
+                        changeTab('ordersListPage');
+                        history.push('/ordersList');
                     }}
-                    data-seed="logId1"
+                // data-seed="logId1"
                 >
                     {/*{this.renderContent('')}*/}
                 </TabBar.Item>
                 <TabBar.Item
                     icon={<div style={{
-                        width: '22px',
-                        height: '22px',
-                        background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat'
+                        width: '0.45rem',
+                        height: '0.45rem',
+                        background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  100% 100% no-repeat'
                     }}
                     />
                     }
                     selectedIcon={<div style={{
-                        width: '22px',
-                        height: '22px',
-                        background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat'
+                        width: '0.45rem',
+                        height: '0.45rem',
+                        background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  100% 100% no-repeat'
                     }}
                     />
                     }
@@ -96,24 +100,24 @@ class MyTabBar extends React.Component {
                         changeTab('favTab');
                         history.push('/Fav');
                     }}
-                    data-seed="logId1"
+                // data-seed="logId1"
                 >
                     {/*{this.renderContent('')}*/}
                 </TabBar.Item>
                 <TabBar.Item
                     icon={
                         <div style={{
-                            width: '22px',
-                            height: '22px',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat'
+                            width: '0.45rem',
+                            height: '0.45rem',
+                            background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  100% 100% no-repeat'
                         }}
                         />
                     }
                     selectedIcon={
                         <div style={{
-                            width: '22px',
-                            height: '22px',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat'
+                            width: '0.45rem',
+                            height: '0.45rem',
+                            background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  100% 100% no-repeat'
                         }}
                         />
                     }
@@ -139,18 +143,47 @@ MyTabBar.propTypes = {
     changeTab: PropTypes.func.isRequired
 };
 
+
 //事件创造器
 function actionCreate(witchTab) {
-    return {
-        type: 'CHANGE_TAB',
-        payload: { selectedTab: witchTab }
+    console.log('77777777777')
+    console.log(witchTab)
+    console.log(MyTabBar.propTypes)
+    console.log(MyTabBar.propTypes.selectedTab)
+    console.log(MyTabBar.propTypes.changeTab)
+    switch (witchTab) {
+        case 'goodsListPage':
+            return {
+                type: 'CHANGE_GOODS',
+                payload: { selectedTab: witchTab }
+            }
+            break;
+        case 'ordersListPage':
+            return {
+                type: 'CHANGE_ORDER',
+                payload: { selectedTab: witchTab }
+            }
+            break;
+        default:
+            return {
+                type: 'CHANGE_TAB',
+                payload: { selectedTab: witchTab }
+            }
+            break;
     }
+
+
+
 }
 
 
 //关联redux
 const
-    MyTabBarRedux = connect((state) => ({ selectedTab: state.selectedTab }), (dispatch) => ({ changeTab: (witchTab) => dispatch(actionCreate(witchTab)) }))(MyTabBar);
+    MyTabBarRedux = connect((state) => ({
+        selectedTab: state.selectedTab
+    }), (dispatch) => ({
+        changeTab: (witchTab) => dispatch(actionCreate(witchTab))
+    }))(MyTabBar);
 
 export { MyTabBarRedux }
 

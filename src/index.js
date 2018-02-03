@@ -8,10 +8,14 @@ import { Provider } from 'react-redux';
 import FastClick from './utils/fastclick';
 FastClick.attach(document.body);
 import store from './store'
-import { GoodsListRedux } from './components/Goods/GoodsList';
-import GoodsDetailRedux from './components/Goods/GoodsDetail';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import { GoodsListRedux } from './components/Goods/GoodsList';
+import GoodsDetailRedux from './components/Goods/GoodsDetail';
+import OrdersListRedux from './components/Order/OrdersList';
+import OrderDetailRedux from './components/Order/OrderDetail';
+import OrderPayedRedux from './components/Order/OrderPayed';
+
 import config from './config/config';
 import Bundle from './utils/bundle';
 
@@ -128,10 +132,13 @@ render(
                     {/*<Router basename="/react-t">*/}
                     <Router>
                         <div style={{ width: '100%', height: '100%' }} >
-                            <Route exact path="/" component={GoodsListRedux} />
-                            <Route path="/goodsDetail/:id" component={GoodsDetailRedux} />
                             <Route path="/Login" component={Login} />
                             <Route path="/Register" component={Register} />
+                            <Route exact path="/" component={GoodsListRedux} />
+                            <Route path="/goodsDetail/:id" component={GoodsDetailRedux} />
+                            <Route path="/ordersList" component={OrdersListRedux} />
+                            <Route path="/orderDetail/:id" component={OrderDetailRedux} />
+                            <Route path="/orderPayed/:id" component={OrderPayedRedux} />
                         </div>
                     </Router>
                 </Provider>

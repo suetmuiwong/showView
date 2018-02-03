@@ -1,5 +1,8 @@
-import { Button, InputItem, List,Flex } from 'antd-mobile';
+import { Button, InputItem, List, Flex } from 'antd-mobile';
 import React from 'react';
+import './Login.scss';
+import { MyNavBarRedux } from '../common/NavBar';
+import md5 from '../../static/md5';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { doFetch, doDispatch } from '../../commonActions/fetch';
@@ -22,7 +25,7 @@ class Login extends React.Component {
 
 
     componentDidMount() {
-        
+
 
     }
 
@@ -33,16 +36,42 @@ class Login extends React.Component {
     //     return (this.props.goodsListObj.goodsList.length != nextProps.goodsListObj.goodsList.length) || (this.props.goodsListObj.pageIndex != nextProps.goodsListObj.pageIndex);
     // }
 
+    onClickPin() {
+        let imgId = document.getElementById('imgId')
+        imgId.src = 'http://localhost:3001/api/user/signInPin.json?' + Math.random();
+    }
+
     // 登录
-    ondoLogin(){
-        var user = document.getElementById('user').value;
-        var pwd = document.getElementById('pwd').value;
-        if(user == '' || user == null || user == undefined) return
-        if(pwd == '' || pwd == null || pwd == undefined) return
+    onClickLogin() {
+
+        var user = document.getElementById('user').value
+        var pwd = document.getElementById('pwd').value
+        var pin = document.getElementById('verify').value
+        var error_msg = document.getElementById('error_msg');
+        var login_msg = document.getElementById('login_msg')
+
+        if (user == '' || user == null || user == undefined) {
+            error_msg.style.display = 'block'
+            error_msg.innerText = '账号不能为空！'
+            return
+        }
+        if (pwd == '' || pwd == null || pwd == undefined) {
+            error_msg.style.display = 'block'
+            error_msg.innerText = '密码不能为空！'
+            return
+        }
+        if (pin == '' || pin == null || pin == undefined) {
+            error_msg.style.display = 'block'
+            error_msg.innerText = '验证码不能为空！'
+            return
+        }
+        error_msg.style.display = 'none'
+
 
         this.props.doLogin('http://localhost:3001/api/user/signIn.json', 'post', {
             userName: user,
-            password: pwd
+            password: md5(pwd),
+            pin: pin.replace(/(^\s*)|(\s*$)/g, "")
         })
 
     }
@@ -51,29 +80,50 @@ class Login extends React.Component {
 
     render() {
         const { history, loginObj, doLogin } = this.props;
-        console.log('^^^^^^^')
-
-        console.log(loginObj)
-
-        if(loginObj.accesstoken != null || loginObj.accesstoken != '' || loginObj.accesstoken != undefined){
-            localStorage.setItem("accesstoken",loginObj.accesstoken);
+     
+        if(loginObj.isLogin ){
+            this.props.history.push("/");
         }
-
         return (
             <div>
+                <MyNavBarRedux history={history} titleName="账号登录" page="LoginPage" />
+                <div className="login-wrapper">
+                    <div>
+                        <div className="item-row">
+                            <span className="login-icon icon-user"></span>
+                            <span className="login-input">
+                                <input id="user" className="input-text" type="text" placeholder="账号" />
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="item-row">
+                            <span className="login-icon icon-pwd"></span>
+                            <span className="login-input">
+                                <input id="pwd" className="input-text" type="password" placeholder="密码" />
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="item-row-verify">
+                            <span className="item-verify">
+                                <span className="login-icon icon-verify"></span>
+                                <span className="login-input-verity">
+                                    <input id="verify" className="input-verify" type="text" placeholder="验证码" />
+                                </span>
+                            </span>
+                            <span className="verify-img">
+                                <img src="http://localhost:3001/api/user/signInPin.json" alt="图片" id='imgId' onClick={() => this.onClickPin()} />
+                            </span>
+                        </div>
+                    </div>
+                    <div id="error_msg" className='error-msg'></div>
+                    <p className="item-row-btn" onClick={() => this.onClickLogin()} >
+                        <button id="loginBtn" className="submit-btn">登录</button>
+                    </p>
+                    <div id="login_msg" className='login-msg'></div>
+                </div>
 
-                <List>
-                    <InputItem id="user" type="test">账号</InputItem>
-                    <InputItem id="pwd"
-                        type="password"
-                        placeholder="****"
-                    >密码</InputItem>
-                </List>
-                <Button type="primary" onClick={() => this.ondoLogin()}>登录</Button>
-                <Flex>
-                    <Flex.Item>我要注册</Flex.Item>
-                    <Flex.Item>忘记密码</Flex.Item>
-                </Flex>
             </div>
 
         );
@@ -86,7 +136,7 @@ const LoginRedux = connect((state) => ({
 }), (dispatch) => ({
     doLogin: (url, type, json) => {
         dispatch(doFetch(url, type, json, '_LOGIN'))
-      }
+    }
 }))(Login);
 
 export default LoginRedux;
