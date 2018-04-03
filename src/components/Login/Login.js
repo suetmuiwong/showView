@@ -38,7 +38,7 @@ class Login extends React.Component {
 
     onClickPin() {
         let imgId = document.getElementById('imgId')
-        imgId.src = 'http://localhost:3001/api/user/signInPin.json?' + Math.random();
+        imgId.src = 'http://localhost:3001/user/signInPin.json?' + Math.random();
     }
 
     // 登录
@@ -68,7 +68,7 @@ class Login extends React.Component {
         error_msg.style.display = 'none'
 
 
-        this.props.doLogin('http://localhost:3001/api/user/signIn.json', 'post', {
+        this.props.doLogin('http://localhost:3001/user/signIn.json', 'post', {
             userName: user,
             password: md5(pwd),
             pin: pin.replace(/(^\s*)|(\s*$)/g, "")
@@ -113,7 +113,7 @@ class Login extends React.Component {
                                 </span>
                             </span>
                             <span className="verify-img">
-                                <img src="http://localhost:3001/api/user/signInPin.json" alt="图片" id='imgId' onClick={() => this.onClickPin()} />
+                                <img src="http://localhost:3001/user/signInPin.json" alt="图片" id='imgId' onClick={() => this.onClickPin()} />
                             </span>
                         </div>
                     </div>

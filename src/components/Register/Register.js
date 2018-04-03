@@ -94,7 +94,7 @@ class Register extends React.Component {
         error_msg.style.display = 'none'
         let self = this;
 
-        this.props.doRegister('http://localhost:3001/api/user/signUp.json','post',{
+        this.props.doRegister('http://localhost:3001/user/signUp.json','post',{
             userName:user,
             email:email,
             password:md5(pwd),

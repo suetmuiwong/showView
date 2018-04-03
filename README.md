@@ -3,3 +3,7 @@
 
 # Webpack-React-Router-Redux-ES6
 
+一、快速启动
+ npm install
+
+
