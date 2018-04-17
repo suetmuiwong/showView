@@ -7,6 +7,8 @@ var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware')
 const bundler = webpack(config);
 
+
+
 // import browserSync from 'browser-sync';
 
 
