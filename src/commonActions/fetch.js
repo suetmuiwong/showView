@@ -47,7 +47,9 @@ const doFetch = (url, type, data, getWhat, callback) => (dispatch, getState) => 
         cors:"no-cors",
         credentials: 'include',
         headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            // "Content-Type": "application/x-www-form-urlencoded"
+            'Accept': 'application/json',  
+            'Content-Type': 'application/json' 
         },
         body: query.slice(0, -1)
     }).then(response=>response.json()).then(json=> {
