@@ -19,7 +19,8 @@ const bundler = webpack(config);
 // 相当于通过本地node服务代理请求到了http://cnodejs.org/api
 var proxy = [{
     path: '/api',
-    target: 'http://localhost:3001',
+    //target: 'http://localhost:3001',
+    target: 'http://localhost:9000',
     secure: false,
     changeOrigin: true
     //host: 'openapi.dvr163.com'

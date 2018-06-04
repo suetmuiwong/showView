@@ -44,12 +44,8 @@ const doFetch = (url, type, data, getWhat, callback) => (dispatch, getState) => 
     }).catch(e=>{})
     if (type == 'post') return fetch(`${config.target + url}`, {
         method: "POST",
-        cors:"no-cors",
-        credentials: 'include',
         headers: {
-            // "Content-Type": "application/x-www-form-urlencoded"
-            'Accept': 'application/json',  
-            'Content-Type': 'application/json' 
+            "Content-Type": "application/x-www-form-urlencoded"
         },
         body: query.slice(0, -1)
     }).then(response=>response.json()).then(json=> {
