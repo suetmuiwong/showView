@@ -56,13 +56,9 @@ function registerReducer({ isRegister } = {
 }, action) {
     switch (action.type) {
         case 'FETCH_REQUEST_REGISTER':
-            return {
-                isRegister: false
-            };
+            return  {};
         case 'FETCH_SUCCESS_REGISTER':
-            return {
-                isRegister: action.payload.success
-            };
+            return Object.assign({}, action['payload']);
         case 'FETCH_FAILED_REGISTER':
             return {
                 isRegister: false
@@ -78,25 +74,19 @@ function registerReducer({ isRegister } = {
 
 //处理登录状态的Reducer
 function loginReducer({ isLogin } = {
-    isLogin: false,
+    isLogin: {},
 }, action) {
+    console.log('8888888888')
+    console.log(action.payload);
     switch (action.type) {
         case 'FETCH_REQUEST_LOGIN':
-            return {
-                isLogin: false
-            };
+            return {};
         case 'FETCH_SUCCESS_LOGIN':
-            return {
-                isLogin: action.payload.success
-            };
+            return Object.assign({}, action['payload']);
         case 'FETCH_FAILED_LOGIN':
-            return {
-                isLogin: false
-            };
+            return Object.assign({}, isLogin);
         default:
-            return {
-                isLogin
-            };
+            return Object.assign({}, isLogin);
     }
 }
 

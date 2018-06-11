@@ -45,50 +45,50 @@ class GoodsList extends React.Component {
 
     this.props.clearGoodsList();
 
-    this.props.indexListNextPage('http://localhost:3001/api/goods/goodsList.json', 'post', {
-      pageIndex: 1,
-      start: 1,
-      limit: 10,
-    })
+    // this.props.indexListNextPage('http://localhost:9000/shopapi/goods/goodsList', 'post', {
+    //   pageIndex: 1,
+    //   start: 1,
+    //   limit: 10,
+    // })
 
-    // this.props.indexListNextPage('http://localhost:3001/api/goods/goodsDetail.json', 'post', {
+    // this.props.indexListNextPage('http://localhost:9000/shopapi/goods/goodsDetail', 'post', {
     //   goodsId: 8
 
     // })
 
-    // this.props.indexListNextPage('http://localhost:3001/api/order/orderList.json', 'post', {
+    // this.props.indexListNextPage('http://localhost:9000/shopapi/orders/orderList', 'post', {
     //   status:0,
     //   pageIndex: 1,
     //   start: 1,
     //   limit: 10,
     // })
 
-    // this.props.indexListNextPage('http://localhost:3001/api/order/orderDetail.json', 'post', {
+    // this.props.indexListNextPage('http://localhost:9000/shopapi/orders/orderDetail', 'post', {
     //   orderId:1
     // })
 
-    // this.props.indexListNextPage('http://localhost:3001/api/order/setOrder.json', 'post', {
+    // this.props.indexListNextPage('http://localhost:9000/shopapi/orders/setOrder', 'post', {
     //   goodsId: 9,
     //   goodsCount:3,
     //   totalMoney:220,
     //   realTotalMoney:200,
     // })
 
-    // this.props.indexListNextPage('http://localhost:3001/api/order/deleteOrder.json', 'post', {
+    // this.props.indexListNextPage('http://localhost:9000/shopapi/orders/deleteOrder', 'post', {
     //   orderId: 8
     // })
 
-    //  this.props.indexListNextPage('http://localhost:3001/api/appeal/appealList.json', 'post', {
+    //  this.props.indexListNextPage('http://localhost:9000/shopapi/appeal/appealList', 'post', {
     //   pageIndex: 1,
     //   start: 1,
     //   limit: 10,
     // })
 
-    //  this.props.indexListNextPage('http://localhost:3001/api/appeal/appealDetail.json', 'post', {
+    //  this.props.indexListNextPage('http://localhost:9000/shopapi/appeal/appealDetail', 'post', {
     //   appealId: 2
     // })
 
-    // this.props.indexListNextPage('http://localhost:3001/api/appeal/setAppeal.json', 'post', {
+    // this.props.indexListNextPage('http://localhost:9000/shopapi/appeal/setAppeal', 'post', {
     //   appealOrder:1516678158463,
     //   appealType: 4,
     //   appealDes: '售后有问题',
@@ -97,9 +97,9 @@ class GoodsList extends React.Component {
     // })
 
     
-    //  this.props.indexListNextPage('http://localhost:3001/api/appeal/deleteAppeal.json  ', 'post', {
-    //   appealId:7
-    // })
+     this.props.indexListNextPage('http://localhost:9000/shopapi/appeal/deleteAppeal', 'post', {
+      appealId:7
+    })
 
     
       
@@ -243,7 +243,7 @@ class GoodsList extends React.Component {
               onRefresh={
                 () => {
                   this.props.clearGoodsList();
-                  this.props.indexListNextPage('http://localhost:3001/api/goods/goodsList.json', 'post', {
+                  this.props.indexListNextPage('http://localhost:9000/shopapi/goods/goodsList', 'post', {
                     pageIndex: this.props.goodsListObj.pageIndex,
                     start: this.props.goodsListObj.start,
                     limit: this.props.goodsListObj.pageSize,
@@ -268,7 +268,7 @@ class GoodsList extends React.Component {
               if (!this.props.goodsListObj.hasMore) {
                 return;
               }
-              indexListNextPage('http://localhost:3001/api/goods/goodsList.json', 'post', {
+              indexListNextPage('http://localhost:9000/shopapi/goods/goodsList', 'post', {
                 pageIndex: goodsListObj.pageIndex,
                 start: this.props.goodsListObj.start,
                 limit: this.props.goodsListObj.pageSize,

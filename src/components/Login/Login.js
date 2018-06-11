@@ -70,7 +70,8 @@ class Login extends React.Component {
 
         this.props.doLogin('http://localhost:9000/shopapi/user/signIn', 'post', {
             userName: user,
-            password: md5(pwd),
+            //password: md5(pwd),
+            password:pwd,
             pin: pin.replace(/(^\s*)|(\s*$)/g, "")
         })
 
@@ -80,8 +81,13 @@ class Login extends React.Component {
 
     render() {
         const { history, loginObj, doLogin } = this.props;
+
+        console.log('^^^^^')
+        console.log(loginObj)
      
-        if(loginObj.isLogin ){
+        if(loginObj.success == 1){
+            console.log(loginObj.token)
+            localStorage.setItem("token", loginObj.token);
             this.props.history.push("/");
         }
         return (
